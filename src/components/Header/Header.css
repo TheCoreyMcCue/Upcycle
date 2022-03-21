@@ -1,0 +1,16 @@
+.header {
+  height: 7em;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  background: #474546;
+  top: 0;
+  z-index: 100;
+}
+
+.header__logo {
+  width: 10%;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 18px;
+}
