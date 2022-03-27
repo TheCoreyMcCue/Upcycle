@@ -11,11 +11,12 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
-import "./Header.css"; 
+import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 // import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
 
 const pages = ["Products", "Pricing", "Blog"];
@@ -24,6 +25,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,6 +42,17 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  // };
+  // const handleChange = (event) => {
+  //   console.log(event.target.value);
+  //   // setSearchTerm(event.target.value);
+  //   // console.log(searchTerm);
+  // }
+
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -99,15 +112,22 @@ const Navbar = () => {
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
             <SearchIconWrapper>
-              <SearchIcon />
+              <SkateboardingIcon className="header__searchIcon" />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
+              <StyledInputBase
+                fullWidth
+                placeholder="Search For Gear…"
+                inputProps={{ "aria-label": "search for gear" }}
+              />
           </Search>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              marginLeft: 0,
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -177,7 +197,10 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+                />
               </IconButton>
             </Tooltip>
             <Menu
