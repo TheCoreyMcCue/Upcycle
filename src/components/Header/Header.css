@@ -9,10 +9,13 @@
 }
 
 .header__logo {
-  width: 10%;
+  width: 1em;
+  height: 10rem;
   object-fit: contain;
-  margin: 0 20px;
-  margin-top: 18px;
+  /* margin: 0 20px; */
+  margin-top: 10px;
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden;
 }
 
 .header__searchInput {
