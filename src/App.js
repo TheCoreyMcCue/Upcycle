@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Header, Home, Navbar } from './components';
+import { Home, Navbar } from './components';
 
 function App() {
   return (
