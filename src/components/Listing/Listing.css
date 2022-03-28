@@ -13,7 +13,8 @@
 }
 
 .listing__image {
-  height: 225px;
+  max-height: 210px;
+  min-height: 180px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 10px;
