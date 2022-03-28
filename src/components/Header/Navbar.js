@@ -94,7 +94,7 @@ const Navbar = () => {
   }));
 
   return (
-    <AppBar style={{ background: "grey" }} position="static">
+    <AppBar style={{ background: "#c7c7c7" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -156,10 +156,7 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                >
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
