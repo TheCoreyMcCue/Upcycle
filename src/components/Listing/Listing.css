@@ -13,7 +13,7 @@
 }
 
 .listing__image {
-  max-height: 200px;
+  max-height: 225px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 10px;
