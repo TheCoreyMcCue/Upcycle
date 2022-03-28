@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css';
+import Listing from '../Listing/Listing';
+
 
 const Home = () => {
   return (
@@ -12,6 +14,10 @@ const Home = () => {
         />
       </div>
 
+      <div className="home__row">
+        <Listing />
+      </div>
+      <div className="home__row"></div>
       <div className="home__row"></div>
     </div>
   );
