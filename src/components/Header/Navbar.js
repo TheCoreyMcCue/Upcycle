@@ -53,7 +53,6 @@ const Navbar = () => {
   //   // console.log(searchTerm);
   // }
 
-
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -114,11 +113,11 @@ const Navbar = () => {
             <SearchIconWrapper>
               <SkateboardingIcon className="header__searchIcon" />
             </SearchIconWrapper>
-              <StyledInputBase
-                fullWidth
-                placeholder="Search For Gear…"
-                inputProps={{ "aria-label": "search for gear" }}
-              />
+            <StyledInputBase
+              fullWidth
+              placeholder="Search For Gear…"
+              inputProps={{ "aria-label": "search for gear" }}
+            />
           </Search>
 
           <Box
@@ -157,7 +156,10 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -172,9 +174,9 @@ const Navbar = () => {
             Upcycle Skate
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >

@@ -13,12 +13,22 @@ const Home = () => {
           alt=""
         />
       </div>
+      {/* <div className="listings__container"> */}
+        <div className="home__row">
+          <Listing />
+          <Listing />
+        </div>
 
-      <div className="home__row">
-        <Listing />
-      </div>
-      <div className="home__row"></div>
-      <div className="home__row"></div>
+        <div className="home__row">
+          <Listing />
+          <Listing />
+        </div>
+
+        <div className="home__row">
+          <Listing />
+          <Listing />
+        </div>
+      {/* </div> */}
     </div>
   );
 }
