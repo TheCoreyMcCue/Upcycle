@@ -18,14 +18,16 @@ import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 // import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Checkout", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   // const [searchTerm, setSearchTerm] = React.useState("");
+  let navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,9 +36,12 @@ const Navbar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
-    console.log("close nav menu");
+  };
+  const handleNavMenuPages = (page) => {
+    setAnchorElNav(null);
+    navigate(`/${page}`);
   };
 
   const handleCloseUserMenu = () => {
@@ -104,7 +109,7 @@ const Navbar = () => {
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
             {/* <img className="header__logo" src={logo} alt="Upcycle Logo" /> */}
-            <Typography>Upcycle Skate</Typography>
+            <Button onClick={() => navigate(`/`)}>Upcycle Skate</Button>
           </Typography>
           <Search
             style={{ width: "45vw" }}
@@ -156,7 +161,7 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleNavMenuPages(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -167,6 +172,7 @@ const Navbar = () => {
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            onClick={() => navigate(`/`)}
           >
             Upcycle Skate
           </Typography>
@@ -174,7 +180,7 @@ const Navbar = () => {
             {pages.map((page, index) => (
               <Button
                 key={index}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleNavMenuPages(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
