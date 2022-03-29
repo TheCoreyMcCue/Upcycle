@@ -11,6 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 // import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
@@ -99,7 +101,7 @@ const Navbar = () => {
   }));
 
   return (
-    <AppBar style={{ background: "#c7c7c7" }} position="static">
+    <AppBar style={{ background: "#4F5D75" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -109,7 +111,12 @@ const Navbar = () => {
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
             {/* <img className="header__logo" src={logo} alt="Upcycle Logo" /> */}
-            <Button onClick={() => navigate(`/`)}>Upcycle Skate</Button>
+            <Typography
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(`/`)}
+            >
+              Upcycle Skate
+            </Typography>
           </Typography>
           <Search
             style={{ width: "45vw" }}
@@ -205,7 +212,13 @@ const Navbar = () => {
                 <Avatar
                   alt="Remy Sharp"
                   src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
                 />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Open notifications">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <NotificationsIcon />
               </IconButton>
             </Tooltip>
             <Menu
