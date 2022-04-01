@@ -1,7 +1,23 @@
 import React from "react";
 import "./Listing.css";
+import { useStateValue } from "../../State/StateProvider";
 
-const listing = ({ title, image, price, rating}) => {
+const listing = ({ id, title, image, price, rating }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [state, dispatch] = useStateValue();
+
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      }
+    });
+  };
   return (
     <div className="listing">
       <div className="listing__info">
@@ -17,14 +33,16 @@ const listing = ({ title, image, price, rating}) => {
           <div className="listing__rating">
             {Array(rating)
               .fill()
-              .map((rating) => (
-                <p>️️⭐</p>
+              .map((rating, index) => (
+                <p key={index}>️️⭐</p>
               ))}
           </div>
         </div>
       </div>
       <img className="listing__image" src={image} alt="" />
-      <button className="listing__button">Add to Cart</button>
+      <button onClick={addToCart} className="listing__button">
+        Add to Cart
+      </button>
     </div>
   );
 };
