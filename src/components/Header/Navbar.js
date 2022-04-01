@@ -21,6 +21,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 // import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
 import { useNavigate } from "react-router-dom";
+import { useStateValue } from "../../State/StateProvider";
 
 const pages = ["Checkout", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -30,6 +31,8 @@ const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   // const [searchTerm, setSearchTerm] = React.useState("");
   let navigate = useNavigate();
+
+  const [{ cart }] = useStateValue();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -200,7 +203,7 @@ const Navbar = () => {
               <div className="header__optionBasket">
                 <ShoppingCartIcon />
                 <span className="header__optionLineTwo header__basketCount">
-                  0
+                  {cart?.length}
                 </span>
               </div>
             </Button>
@@ -217,7 +220,10 @@ const Navbar = () => {
               </IconButton>
             </Tooltip>
             <Tooltip title="Open notifications">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, color: "white" }}
+              >
                 <NotificationsIcon />
               </IconButton>
             </Tooltip>
@@ -244,6 +250,12 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
+          <div onClick={() => navigate(`/checkout`)} className="header__optionBasket">
+            <ShoppingCartIcon />
+            <span className="header__optionLineTwo header__basketCount">
+              {cart?.length}
+            </span>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>

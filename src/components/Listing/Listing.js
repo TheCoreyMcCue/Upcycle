@@ -1,10 +1,13 @@
 import React from "react";
 import "./Listing.css";
 import { useStateValue } from "../../State/StateProvider";
+import uuid from "react-uuid";
 
 const listing = ({ id, title, image, price, rating }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [state, dispatch] = useStateValue();
+  const [{cart}, dispatch] = useStateValue();
+
+  console.log("cart", cart);
 
   const addToCart = () => {
     dispatch({
@@ -34,7 +37,7 @@ const listing = ({ id, title, image, price, rating }) => {
             {Array(rating)
               .fill()
               .map((rating, index) => (
-                <p key={index}>️️⭐</p>
+                <p key={uuid()}>️️⭐</p>
               ))}
           </div>
         </div>
