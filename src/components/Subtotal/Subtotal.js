@@ -5,9 +5,10 @@ import "./Subtotal.css";
 import { useStateValue } from "../../State/StateProvider";
 
 const Subtotal = () => {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart }] = useStateValue();
   const handleCartTotal = (cart) => {
     let total = 0;
+    // eslint-disable-next-line array-callback-return
     cart.map((item) => {
       total += item.price;
     });
