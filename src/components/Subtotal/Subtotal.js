@@ -2,15 +2,28 @@ import React from "react";
 import { Button } from "@mui/material";
 import CurrencyFormat from "react-currency-format";
 import "./Subtotal.css";
+import { useStateValue } from "../../State/StateProvider";
 
 const Subtotal = () => {
+  const [{ cart }, dispatch] = useStateValue();
+  const handleCartTotal = (cart) => {
+    let total = 0;
+    cart.map((item) => {
+      total += item.price;
+    });
+    return total;
+  };
   return (
     <div className="subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({0} items): <strong>{`${0}`}</strong>
+              Subtotal ({cart.length} items):
+              {cart.map((item) => (
+                <p key={item.id}>{item.title}</p>
+              ))}
+              <strong>${handleCartTotal(cart)}</strong>
             </p>
             {/* <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
