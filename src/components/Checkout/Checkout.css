@@ -2,7 +2,7 @@
   width: 100%;
   max-height: 30vh;
   z-index: -1;
-  margin-bottom: -150px;
+  margin-bottom: -250px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,8 @@
 }
 .checkout__title {
   z-index: 1;
-  max-width: 100%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .checkout__title__left {
   margin-right: 10px;

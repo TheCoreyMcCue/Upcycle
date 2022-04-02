@@ -3,7 +3,7 @@ import "./Listing.css";
 import { useStateValue } from "../../State/StateProvider";
 import uuid from "react-uuid";
 
-const listing = ({ id, title, image, price, rating }) => {
+const listing = ({ id, title, image, price, rating, description }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [{cart}, dispatch] = useStateValue();
 
@@ -18,6 +18,7 @@ const listing = ({ id, title, image, price, rating }) => {
         image: image,
         price: price,
         rating: rating,
+        description: description,
       }
     });
   };

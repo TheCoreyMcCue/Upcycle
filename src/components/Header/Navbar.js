@@ -196,7 +196,7 @@ const Navbar = () => {
                 {page}
               </Button>
             ))}
-            <Button
+            {/* <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
@@ -206,19 +206,10 @@ const Navbar = () => {
                   {cart?.length}
                 </span>
               </div>
-            </Button>
+            </Button> */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
-                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-                />
-              </IconButton>
-            </Tooltip>
             <Tooltip title="Open notifications">
               <IconButton
                 onClick={handleOpenUserMenu}
@@ -250,12 +241,24 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <div onClick={() => navigate(`/checkout`)} className="header__optionBasket">
+          <div
+            onClick={() => navigate(`/checkout`)}
+            className="header__optionBasket"
+          >
             <ShoppingCartIcon />
             <span className="header__optionLineTwo header__basketCount">
               {cart?.length}
             </span>
           </div>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar
+                alt="Remy Sharp"
+                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </Container>
     </AppBar>
