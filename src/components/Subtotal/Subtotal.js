@@ -34,7 +34,7 @@ const Subtotal = () => {
                 //   <img className="subtotal__image" src={item.image} alt="" />
                 //   <p>${item.price}</p>
                 // </div>
-                <Card sx={{ maxWidth: 345, marginTop: 1, marginBottom: 1 }}>
+                <Card sx={{ maxWidth: "70vw", marginTop: 1, marginBottom: 1 }}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
