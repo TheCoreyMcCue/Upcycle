@@ -1,5 +1,5 @@
 import React from "react";
-import './Header.css';
+import "./Header.css";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import logo from "../../assets/logos/UpcycleSkate-logos_white.png";

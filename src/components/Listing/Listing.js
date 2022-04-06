@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import "./Listing.css";
 import { useStateValue } from "../../State/StateProvider";
@@ -8,9 +9,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Button } from "@mui/material";
 
 const listing = ({ id, title, image, price, rating, description }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [{ cart }, dispatch] = useStateValue();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [toggleDescription, setToggleDescription] = useState(true);
 
   console.log("cart", cart);
@@ -78,20 +77,28 @@ const listing = ({ id, title, image, price, rating, description }) => {
             ${price}
           </Typography>
           <Typography
-          onClick={() => setToggleDescription(!toggleDescription)}
-            sx={toggleDescription &&{
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              display: "-webkit-box",
-              WebkitLineClamp: "3",
-              WebkitBoxOrient: "vertical",
-            }}
+            onClick={() => setToggleDescription(!toggleDescription)}
+            sx={
+              toggleDescription && {
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: "3",
+                WebkitBoxOrient: "vertical",
+              }
+            }
             variant="body2"
             color="text.secondary"
           >
             {description}
           </Typography>
-          <div style={{ marginTop: "5%", display: "flex", justifyContent: "space-around" }}>
+          <div
+            style={{
+              marginTop: "5%",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
             <Button variant="contained" color="success" onClick={addToCart}>
               Add to Cart
             </Button>
