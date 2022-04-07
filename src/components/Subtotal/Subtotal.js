@@ -77,10 +77,11 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-
-      <Button variant="contained" style={{ color: "white" }}>
-        Proceed to Checkout
-      </Button>
+      <Typography>
+        <Button variant="contained" style={{ color: "white" }}>
+          Proceed to Checkout
+        </Button>
+      </Typography>
     </div>
   );
 };

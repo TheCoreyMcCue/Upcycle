@@ -28,31 +28,6 @@ const listing = ({ id, title, image, price, rating, description }) => {
     });
   };
   return (
-    // <div className="listing">
-    //   <div className="listing__info">
-    //     <h5>{title}</h5>
-    //     <div className="listing__price">
-    //       <p>
-    //         <small>$</small>
-    //         <strong>{price}</strong>
-    //       </p>
-    //       <p>
-    //         <small>seller rating: </small>
-    //       </p>
-    //       <div className="listing__rating">
-    //         {Array(rating)
-    //           .fill()
-    //           .map((rating, index) => (
-    //             <p key={uuid()}>️️⭐</p>
-    //           ))}
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <img className="listing__image" src={image} alt="" />
-    //   <button onClick={addToCart} className="listing__button">
-    //     Add to Cart
-    //   </button>
-    // </div>
     <Card sx={{ maxWidth: "100vw", margin: 1 }}>
       <CardActionArea>
         <CardMedia

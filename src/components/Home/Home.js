@@ -3,6 +3,7 @@ import "./Home.css";
 import Listing from "../Listing/Listing";
 import uuid from "react-uuid";
 import { Grid } from "@mui/material";
+// import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
 
 const Home = () => {
   const description =
@@ -15,8 +16,8 @@ const Home = () => {
           src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
           alt=""
         />
+        {/* <img src={logo} alt="Upcycle Skate logo" className="home__logo" /> */}
       </div>
-      {/* <div className="listings__container"> */}
       <Grid container>
         <Grid
           container
@@ -86,7 +87,6 @@ const Home = () => {
           )
         </Grid>
       </Grid>
-      {/* </div> */}
     </div>
   );
 };
