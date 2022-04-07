@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "@mui/material";
 import CurrencyFormat from "react-currency-format";
+import uuid from "react-uuid";
 import "./Subtotal.css";
 import { useStateValue } from "../../State/StateProvider";
 import Card from "@mui/material/Card";
@@ -10,31 +10,21 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const Subtotal = () => {
+const Subtotal = ({ handleCartTotal }) => {
   const [{ cart }] = useStateValue();
-  const handleCartTotal = (cart) => {
-    let total = 0;
-    // eslint-disable-next-line array-callback-return
-    cart.map((item) => {
-      total += item.price;
-    });
-    return total;
-  };
   return (
     <div className="subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
-            <div>
+            <div style={{ width: "100%" }}>
               Subtotal ({cart?.length} items):{" "}
               <strong>${handleCartTotal(cart)}</strong>
               {cart.map((item) => (
-                // <div>
-                //   <h3 key={item.id}>{item.title}</h3>
-                //   <img className="subtotal__image" src={item.image} alt="" />
-                //   <p>${item.price}</p>
-                // </div>
-                <Card sx={{ maxWidth: "70vw", marginTop: 1, marginBottom: 1 }}>
+                <Card
+                  key={uuid()}
+                  sx={{ width: "100%", marginTop: 1, marginBottom: 1 }}
+                >
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -66,9 +56,6 @@ const Subtotal = () => {
                 </Card>
               ))}
             </div>
-            {/* <small className="subtotal__gift">
-              <input type="checkbox" /> This order contains a gift
-            </small> */}
           </>
         )}
         decimalScale={2}
@@ -77,11 +64,6 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <Typography>
-        <Button variant="contained" style={{ color: "white" }}>
-          Proceed to Checkout
-        </Button>
-      </Typography>
     </div>
   );
 };
